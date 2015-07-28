@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get 'static/soon'
+  root 'core#index'
+
+  get 'soon' => 'static#soon'
 end
