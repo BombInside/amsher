@@ -11,7 +11,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 # gem 'capistrano-rails', group: :development
-gem 'immortal'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
