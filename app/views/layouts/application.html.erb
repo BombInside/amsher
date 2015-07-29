@@ -69,7 +69,7 @@
 					<h1><a href="index.html">Amsher<span>Hookah Club</span></a></h1>
 					<nav>
 						<ul class="sf-menu">
-							<li class="current"><a href="index.html">Home</a>
+							<li class="current"><a href="#">Главная</a>
 								<ul>
 									<li><a href="#">Lorem ipsum</a></li>
 									<li><a href="#">Lorem ipsum</a>
@@ -153,7 +153,7 @@
 		google_api_map_init();
 		function google_api_map_init(){
 			var map;
-			var coordData = new google.maps.LatLng(parseFloat(40.6894388), parseFloat(-73.9036233,10)); 
+			var coordData = new google.maps.LatLng(parseFloat(48.49724), parseFloat(32.20728,10)); 
 
 			var styleArray = [
 				{"featureType":"water","stylers":[{"color":"#021019"}]},
@@ -173,19 +173,50 @@
 			 
 			function initialize() { 
 			  var mapOptions = { 
-				zoom: 12, 
+				zoom: 16, 
 				center: coordData, 
 				scrollwheel: false, 
 				styles: styleArray 
 			  } 
+
+
  
 			  var contentString = "<div></div>"; 
 			  var infowindow = new google.maps.InfoWindow({ 
 				content: contentString, 
 				maxWidth: 200 
 			  }); 
-			   
+
+			  var contentString = '<div id="content">'+
+      			'<div id="siteNotice">'+
+      			'</div>'+
+      			'<h1 id="firstHeading" class="firstHeading">Amsher Hookah Club</h1>'+
+      			'<div id="bodyContent">'+
+      			'<p><b>Наш кальян-правильный кальян! </b>' +
+      			'Разнообразие блюд и вкусов! Приятная  '+
+      			'атмосфера для общения с друзьями! Все  '+
+      			'только для Вас !</p>'+
+      			'</div>'+
+      			'</div>';
+      		    var infowindow = new google.maps.InfoWindow({
+      				content: contentString,
+      				maxWidth: 550
+  				});
+
+
+			  var image = 'images/marker_icon.png';
 			  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions); 
+			  var marker = new google.maps.Marker({
+      			position: coordData,
+      			map: map,
+      			title: 'Amsher Hookah Club',
+      			animation: google.maps.Animation.DROP,
+      			icon: image
+  			  });
+
+  			   google.maps.event.addListener(marker, 'click', function() {
+   				 infowindow.open(map,marker);
+ 			 });
 
 
 			google.maps.event.addDomListener(window, 'resize', function() {
